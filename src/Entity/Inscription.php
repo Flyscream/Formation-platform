@@ -54,7 +54,6 @@ class Inscription
 
     public function __construct()
     {
-        // Initialisation des valeurs automatiques
         $this->dateInscription = new \DateTimeImmutable();
         $this->statut = self::STATUS_CHOICES[0]; 
         $this->progressionPourcentage = 0; 
