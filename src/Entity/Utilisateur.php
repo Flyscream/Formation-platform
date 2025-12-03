@@ -34,7 +34,6 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null; // Mot de passe hashé
 
-
     #[ORM\Column(length: 100)]
     #[Assert\Length(
         min: 2,
