@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formation{% endblock %}
+
+{% block body %}
+    <h1>Formation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ formation.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ formation.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ formation.description }}</td>
+            </tr>
+            <tr>
+                <th>DureeHeures</th>
+                <td>{{ formation.dureeHeures }}</td>
+            </tr>
+            <tr>
+                <th>NiveauDifficulte</th>
+                <td>{{ formation.niveauDifficulte }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ formation.prix }}</td>
+            </tr>
+            <tr>
+                <th>DateCreation</th>
+                <td>{{ formation.dateCreation ? formation.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>EstPubliee</th>
+                <td>{{ formation.estPubliee ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>CapaciteMax</th>
+                <td>{{ formation.capaciteMax }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_yes_index') }}">back to list</a>
+
+    <a href="{{ path('app_yes_edit', {'id': formation.id}) }}">edit</a>
+
+    {{ include('yes/_delete_form.html.twig') }}
+{% endblock %}

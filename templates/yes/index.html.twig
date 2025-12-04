@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formation index{% endblock %}
+
+{% block body %}
+    <h1>Formation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>DureeHeures</th>
+                <th>NiveauDifficulte</th>
+                <th>Prix</th>
+                <th>DateCreation</th>
+                <th>EstPubliee</th>
+                <th>CapaciteMax</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formation in formations %}
+            <tr>
+                <td>{{ formation.id }}</td>
+                <td>{{ formation.titre }}</td>
+                <td>{{ formation.description }}</td>
+                <td>{{ formation.dureeHeures }}</td>
+                <td>{{ formation.niveauDifficulte }}</td>
+                <td>{{ formation.prix }}</td>
+                <td>{{ formation.dateCreation ? formation.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ formation.estPubliee ? 'Yes' : 'No' }}</td>
+                <td>{{ formation.capaciteMax }}</td>
+                <td>
+                    <a href="{{ path('app_yes_show', {'id': formation.id}) }}">show</a>
+                    <a href="{{ path('app_yes_edit', {'id': formation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_yes_new') }}">Create new</a>
+{% endblock %}
